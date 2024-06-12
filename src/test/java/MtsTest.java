@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class MtsTest {
     static WebDriver driver;
@@ -48,7 +47,7 @@ public class MtsTest {
     public void checkInfoLinkTest() {
         WebElement infoLink = driver.findElement(By.xpath("//div[@class='pay__wrapper']/a"));
         infoLink.click();
-        Assert.assertTrue(driver.getCurrentUrl().contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"));
+        assertTrue(driver.getCurrentUrl().contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"));
         WebElement headerLogo = driver.findElement(By.xpath("//div[@class='page-header__top']/a"));
         headerLogo.click();
     }
