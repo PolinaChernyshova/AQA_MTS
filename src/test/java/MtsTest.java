@@ -11,7 +11,6 @@ import static org.testng.Assert.assertTrue;
 public class MtsTest {
     static WebDriver driver;
     @BeforeClass
-
     public static void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
