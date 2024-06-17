@@ -1,0 +1,37 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>AQA_MTS</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>11</maven.compiler.source>\r\n        <maven.compiler.target>11</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision b3bcc7ac261e427fbe9a2bb037fe66f828337c6c)
++++ b/pom.xml	(date 1718618245805)
+@@ -14,4 +14,5 @@
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+ 
++
+ </project>
+\ No newline at end of file
+Index: src/test/java/Mts2Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/Mts2Test.java b/src/test/java/Mts2Test.java
+new file mode 100644
+--- /dev/null	(date 1718618245797)
++++ b/src/test/java/Mts2Test.java	(date 1718618245797)
+@@ -0,0 +1,10 @@
++public class Mts2Test {
++    static WebDriver driver;
++
++    @BeforeClass
++    public static void setUp() {
++        WebDriverManager.chromedriver().setup();
++        driver = new ChromeDriver();
++        driver.get("https://www.mts.by");
++    }
++}

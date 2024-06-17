@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="" />
+    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="commit changes in workspace.xml">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Mts2Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +17,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2hnAs6faVfe31Ek9wamt7pLIOZH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -24,11 +28,79 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Mts2Test.executor": "Run",
+    "JUnit.Mts2Test.executor": "Run",
+    "JUnit.Mts2Test.testCheckCommunicationServicesFields.executor": "Run",
+    "JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor": "Run",
+    "JUnit.Mts2Test.testCheckServiceDropdownOptions.executor": "Run",
+    "JUnit.Mts2Test.testDebtFields.executor": "Run",
+    "JUnit.Mts2Test.testInstallmentFields.executor": "Run",
+    "JUnit.Mts2Test.testPhoneInternetFields.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Lesson__16",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="JUnit.Mts2Test">
+    <configuration name="Mts2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AQA_MTS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mts2Test.testCheckCommunicationServicesFillFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AQA_MTS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+      <option name="METHOD_NAME" value="testCheckCommunicationServicesFillFields" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mts2Test.testDebtFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AQA_MTS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+      <option name="METHOD_NAME" value="testDebtFields" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mts2Test.testInstallmentFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AQA_MTS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+      <option name="METHOD_NAME" value="testInstallmentFields" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mts2Test.testPhoneInternetFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AQA_MTS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+      <option name="METHOD_NAME" value="testPhoneInternetFields" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Mts2Test" />
+        <item itemvalue="JUnit.Mts2Test.testCheckCommunicationServicesFillFields" />
+        <item itemvalue="JUnit.Mts2Test.testDebtFields" />
+        <item itemvalue="JUnit.Mts2Test.testInstallmentFields" />
+        <item itemvalue="JUnit.Mts2Test.testPhoneInternetFields" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
