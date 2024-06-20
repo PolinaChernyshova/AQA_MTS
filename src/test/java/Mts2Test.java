@@ -26,23 +26,23 @@ public class Mts2Test {
 
     //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.1 услуги связи
     @Test
-    public void testCheckCommunicationServicesFields() {
+    public void testCommunicationServicesFields() {
         WebElement serviceDropdown = driver.findElement(By.xpath("//button[@class='select__header']"));
         serviceDropdown.click();
         WebElement communicationDropdown = driver.findElement(By.xpath("//p[text()='Услуги связи']"));
         communicationDropdown.click();
         WebElement phoneNumberField = driver.findElement(By.xpath("//input[@class='phone']"));
-        String expectedResult1 = "Номер телефона";
-        String phoneNumberText = phoneNumberField.getAttribute("placeholder");
-        assertEquals(expectedResult1, phoneNumberText);
+        String expectedPhoneNumber = "Номер телефона";
+        String actualPhoneNumber = phoneNumberField.getAttribute("placeholder");
+        assertEquals(expectedPhoneNumber, actualPhoneNumber);
         WebElement sumField = driver.findElement(By.xpath("//input[@class='total_rub']"));
-        String expectedResult2 = "Сумма";
-        String sumFieldText = sumField.getAttribute("placeholder");
-        assertEquals(expectedResult2, sumFieldText);
+        String expectedSum = "Сумма";
+        String actualSum = sumField.getAttribute("placeholder");
+        assertEquals(expectedSum, actualSum);
         WebElement emailField = driver.findElement(By.xpath("//input[@class='email']"));
-        String expectedResult3 = "E-mail для отправки чека";
-        String emailFieldText = emailField.getAttribute("placeholder");
-        assertEquals(expectedResult3, emailFieldText);
+        String expectedEmail = "E-mail для отправки чека";
+        String actualEmail = emailField.getAttribute("placeholder");
+        assertEquals(expectedEmail, actualEmail);
     }
 
     //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.2 домашний интернет
@@ -53,17 +53,17 @@ public class Mts2Test {
         WebElement homeInternetDropdown = driver.findElement(By.xpath("//p[text()='Домашний интернет']"));
         homeInternetDropdown.click();
         WebElement phoneNumberField = driver.findElement(By.xpath("//input[@id ='internet-phone']"));
-        String expectedResult1 = "Номер абонента";
-        String phoneNumberText = phoneNumberField.getAttribute("placeholder");
-        assertEquals(expectedResult1, phoneNumberText);
+        String expectedPhoneNumber = "Номер абонента";
+        String actualPhoneNumber = phoneNumberField.getAttribute("placeholder");
+        assertEquals(expectedPhoneNumber, actualPhoneNumber);
         WebElement sumField = driver.findElement(By.xpath("//input[@id ='internet-sum']"));
-        String expectedResult2 = "Сумма";
-        String sumFieldText = sumField.getAttribute("placeholder");
-        assertEquals(expectedResult2, sumFieldText);
+        String expectedSum = "Сумма";
+        String actualSum = sumField.getAttribute("placeholder");
+        assertEquals(expectedSum, actualSum);
         WebElement emailField = driver.findElement(By.xpath("//input[@id ='internet-email']"));
-        String expectedResult3 = "E-mail для отправки чека";
-        String emailFieldText = emailField.getAttribute("placeholder");
-        assertEquals(expectedResult3, emailFieldText);
+        String expectedEmail = "E-mail для отправки чека";
+        String actualEmail = emailField.getAttribute("placeholder");
+        assertEquals(expectedEmail, actualEmail);
     }
 
     //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.3 рассрочка
@@ -74,17 +74,17 @@ public class Mts2Test {
         WebElement installmentDropdown = driver.findElement(By.xpath("//p[text()='Рассрочка']"));
         installmentDropdown.click();
         WebElement scoreInstallmentField = driver.findElement(By.xpath("//input[@id = 'score-instalment']"));
-        String expectedResult1 = "Номер счета на 44";
-        String scoreInstallmentText = scoreInstallmentField.getAttribute("placeholder");
-        assertEquals(expectedResult1, scoreInstallmentText);
+        String expectedInstallmentScore= "Номер счета на 44";
+        String actualInstallmentScore = scoreInstallmentField.getAttribute("placeholder");
+        assertEquals(expectedInstallmentScore, actualInstallmentScore);
         WebElement sumField = driver.findElement(By.xpath("//input[@id = 'instalment-sum']"));
-        String expectedResult2 = "Сумма";
-        String sumFieldText = sumField.getAttribute("placeholder");
-        assertEquals(expectedResult2, sumFieldText);
+        String expectedSum = "Сумма";
+        String actualSum = sumField.getAttribute("placeholder");
+        assertEquals(expectedSum, actualSum);
         WebElement emailField = driver.findElement(By.xpath("//input[@id = 'instalment-email']"));
-        String expectedResult3 = "E-mail для отправки чека";
-        String emailFieldText = emailField.getAttribute("placeholder");
-        assertEquals(expectedResult3, emailFieldText);
+        String expectedEmail = "E-mail для отправки чека";
+        String actualEmail = emailField.getAttribute("placeholder");
+        assertEquals(expectedEmail, actualEmail);
     }
 
     //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.4 задолженность
@@ -95,17 +95,17 @@ public class Mts2Test {
         WebElement debtDropdown = driver.findElement(By.xpath("//p[text() = 'Задолженность']"));
         debtDropdown.click();
         WebElement scoreNumberField = driver.findElement(By.xpath("//input[@id = 'score-arrears']"));
-        String expectedResult1 = "Номер счета на 2073";
-        String scoreNumberText = scoreNumberField.getAttribute("placeholder");
-        assertEquals(expectedResult1, scoreNumberText);
+        String expectedScoreNumber = "Номер счета на 2073";
+        String actualScoreNumber = scoreNumberField.getAttribute("placeholder");
+        assertEquals(expectedScoreNumber, actualScoreNumber);
         WebElement sumField = driver.findElement(By.xpath("//input[@id = 'arrears-sum']"));
-        String expectedResult2 = "Сумма";
-        String sumFieldText = sumField.getAttribute("placeholder");
-        assertEquals(expectedResult2, sumFieldText);
+        String expectedSum = "Сумма";
+        String actualSum = sumField.getAttribute("placeholder");
+        assertEquals(expectedSum, actualSum);
         WebElement emailField = driver.findElement(By.xpath("//input[@id = 'arrears-email']"));
-        String expectedResult3 = "E-mail для отправки чека";
-        String emailFieldText = emailField.getAttribute("placeholder");
-        assertEquals(expectedResult3, emailFieldText);
+        String expectedEmail = "E-mail для отправки чека";
+        String actualEmail = emailField.getAttribute("placeholder");
+        assertEquals(expectedEmail, actualEmail);
     }
 
     /*Для варианта «Услуги связи» заполнить поля
