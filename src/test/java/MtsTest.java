@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
@@ -64,5 +65,9 @@ public class MtsTest {
         sumField.sendKeys("100");
         WebElement submitButton = driver.findElement(By.xpath("//button[text()='Продолжить']"));
         submitButton.click();
+    }
+    @AfterClass
+    static public void closeChrome() {
+        driver.quit();
     }
 }

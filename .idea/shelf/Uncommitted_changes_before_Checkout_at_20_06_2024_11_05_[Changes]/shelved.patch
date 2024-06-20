@@ -1,0 +1,78 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"cb6c788e-f969-452c-91d8-93d93adaeda2\" name=\"Changes\" comment=\"commit changes in workspace.xml\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/Mts2Test.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2hnAs6faVfe31Ek9wamt7pLIOZH\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Mts2Test.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckCommunicationServicesFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckServiceDropdownOptions.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testDebtFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testInstallmentFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testPhoneInternetFields.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"Lesson__16\",\r\n    \"kotlin-language-version-configured\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"JUnit.Mts2Test\">\r\n    <configuration name=\"Mts2Test\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testCheckCommunicationServicesFillFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testCheckCommunicationServicesFillFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testDebtFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testDebtFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testInstallmentFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testInstallmentFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testPhoneInternetFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testPhoneInternetFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.Mts2Test\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testCheckCommunicationServicesFillFields\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testDebtFields\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testInstallmentFields\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testPhoneInternetFields\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"cb6c788e-f969-452c-91d8-93d93adaeda2\" name=\"Changes\" comment=\"\" />\r\n      <created>1718219674745</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1718219674745</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,10 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="commit changes in workspace.xml">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/Mts2Test.java" afterDir="false" />
++    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="initial commit">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_55__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57__Changes_1.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -26,21 +27,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.Mts2Test.executor": "Run",
+-    "JUnit.Mts2Test.executor": "Run",
+-    "JUnit.Mts2Test.testCheckCommunicationServicesFields.executor": "Run",
+-    "JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor": "Run",
+-    "JUnit.Mts2Test.testCheckServiceDropdownOptions.executor": "Run",
+-    "JUnit.Mts2Test.testDebtFields.executor": "Run",
+-    "JUnit.Mts2Test.testInstallmentFields.executor": "Run",
+-    "JUnit.Mts2Test.testPhoneInternetFields.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "Lesson__16",
+-    "kotlin-language-version-configured": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.Mts2Test.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.Mts2Test.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.Mts2Test.testCheckCommunicationServicesFields.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.Mts2Test.testCheckServiceDropdownOptions.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.Mts2Test.testDebtFields.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.Mts2Test.testInstallmentFields.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.Mts2Test.testPhoneInternetFields.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;Lesson__16&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager" selected="JUnit.Mts2Test">
+     <configuration name="Mts2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="AQA_MTS" />
+@@ -112,4 +113,15 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+ </project>
+\ No newline at end of file
