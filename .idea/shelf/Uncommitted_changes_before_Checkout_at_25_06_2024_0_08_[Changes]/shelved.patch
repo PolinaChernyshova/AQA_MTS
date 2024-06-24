@@ -1,0 +1,123 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>AQA_MTS</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>11</maven.compiler.source>\r\n        <maven.compiler.target>11</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n        <allure.version>2.24.0</allure.version>\r\n        <aspectj.version>1.9.21</aspectj.version>\r\n        <allure.results.directory>target/allure-results</allure.results.directory>\r\n    </properties>\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>io.qameta.allure</groupId>\r\n                <artifactId>allure-maven</artifactId>\r\n                <version>2.10.0</version>\r\n                <configuration>\r\n                    <reportVersion>${allure.version}</reportVersion>\r\n                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>\r\n                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>\r\n                </configuration>\r\n            </plugin>\r\n        </plugins>\r\n    </build>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-java</artifactId>\r\n            <version>4.21.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.github.bonigarcia</groupId>\r\n            <artifactId>webdrivermanager</artifactId>\r\n            <version>5.8.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>junit</groupId>\r\n            <artifactId>junit</artifactId>\r\n            <version>4.13.2</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.testng</groupId>\r\n            <artifactId>testng</artifactId>\r\n            <version>7.10.2</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.qameta.allure</groupId>\r\n            <artifactId>allure-junit5</artifactId>\r\n            <scope>test</scope>\r\n        </dependency>\r\n    </dependencies>\r\n    <dependencyManagement>\r\n        <dependencies>\r\n            <dependency>\r\n                <groupId>io.qameta.allure</groupId>\r\n                <artifactId>allure-bom</artifactId>\r\n                <version>${allure.version}</version>\r\n                <type>pom</type>\r\n                <scope>import</scope>\r\n            </dependency>\r\n        </dependencies>\r\n    </dependencyManagement>\r\n\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	
++++ b/pom.xml	
+@@ -19,14 +19,21 @@
+     <build>
+         <plugins>
+             <plugin>
+-                <groupId>io.qameta.allure</groupId>
+-                <artifactId>allure-maven</artifactId>
+-                <version>2.10.0</version>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-surefire-plugin</artifactId>
++                <version>3.1.2</version>
+                 <configuration>
+-                    <reportVersion>${allure.version}</reportVersion>
+-                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+-                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
++                    <argLine>
++                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
++                    </argLine>
+                 </configuration>
++                <dependencies>
++                    <dependency>
++                        <groupId>org.aspectj</groupId>
++                        <artifactId>aspectjweaver</artifactId>
++                        <version>${aspectj.version}</version>
++                    </dependency>
++                </dependencies>
+             </plugin>
+         </plugins>
+     </build>
+@@ -42,9 +49,9 @@
+             <version>5.8.0</version>
+         </dependency>
+         <dependency>
+-            <groupId>junit</groupId>
+-            <artifactId>junit</artifactId>
+-            <version>4.13.2</version>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-engine</artifactId>
++            <version>5.5.2</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"cb6c788e-f969-452c-91d8-93d93adaeda2\" name=\"Changes\" comment=\"merge branches, add dependencies to pom.xml\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/allure.properties\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2hnAs6faVfe31Ek9wamt7pLIOZH\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Mts2Test.executor\": \"Run\",\r\n    \"JUnit.Mts2Test (1).executor\": \"Run\",\r\n    \"JUnit.Mts2Test.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckCommunicationServicesFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckServiceDropdownOptions.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testDebtFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testInstallmentFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testPhoneInternetFields.executor\": \"Run\",\r\n    \"Maven.AQA_MTS [clean].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:aggregate].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:help].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:install].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:report].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:serve].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"Lesson__18\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"reference.projectsettings.compiler.javacompiler\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"Lesson_18\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"JUnit.Mts2Test (1)\">\r\n    <configuration name=\"Mts2Test (1)\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Lesson_18.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"Lesson_18\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Lesson_18.Mts2Test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testCheckCommunicationServicesFillFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testCheckCommunicationServicesFillFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testDebtFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testDebtFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testInstallmentFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testInstallmentFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.Mts2Test (1)\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testCheckCommunicationServicesFillFields\" />\r\n        <item itemvalue=\"JUnit.Mts2Test\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testDebtFields\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testInstallmentFields\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"cb6c788e-f969-452c-91d8-93d93adaeda2\" name=\"Changes\" comment=\"\" />\r\n      <created>1718219674745</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1718219674745</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"merge branches, add dependencies to pom.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719236203244</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719236203244</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"merge branches, add dependencies to pom.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719236231441</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719236231441</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"merge branches, add dependencies to pom.xml\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"merge branches, add dependencies to pom.xml\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,11 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="merge branches, add dependencies to pom.xml">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/allure.properties" afterDir="false" />
++    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="initial commit">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/allure.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/allure.properties" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -50,6 +49,7 @@
+     "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:report].executor": "Run",
+     "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:serve].executor": "Run",
+     "Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
++    "Maven.AQA_MTS [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "git-widget-placeholder": "Lesson__18",
+     "kotlin-language-version-configured": "true",
+@@ -154,7 +154,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1719236231441</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="initial commit">
++      <option name="closed" value="true" />
++      <created>1719262199246</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1719262199247</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -170,6 +178,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="merge branches, add dependencies to pom.xml" />
+-    <option name="LAST_COMMIT_MESSAGE" value="merge branches, add dependencies to pom.xml" />
++    <MESSAGE value="initial commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/test/resources/allure.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>allure.results.directory=target/allure-result
+===================================================================
+diff --git a/src/test/resources/allure.properties b/src/test/resources/allure.properties
+--- a/src/test/resources/allure.properties	
++++ b/src/test/resources/allure.properties	
+@@ -1,1 +1,1 @@
+-allure.results.directory=target/allure-result
+\ No newline at end of file
++allure.results.directory=target/allure-results
+\ No newline at end of file

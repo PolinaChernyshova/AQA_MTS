@@ -22,21 +22,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Mts2Test.executor": "Run",
-    "JUnit.Mts2Test.executor": "Run",
-    "JUnit.Mts2Test.testCheckCommunicationServicesFields.executor": "Run",
-    "JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor": "Run",
-    "JUnit.Mts2Test.testCheckServiceDropdownOptions.executor": "Run",
-    "JUnit.Mts2Test.testDebtFields.executor": "Run",
-    "JUnit.Mts2Test.testInstallmentFields.executor": "Run",
-    "JUnit.Mts2Test.testPhoneInternetFields.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Mts2Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testCheckCommunicationServicesFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testCheckServiceDropdownOptions.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testDebtFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testInstallmentFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testPhoneInternetFields.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.Mts2Test.testCheckCommunicationServicesFillFields">
     <configuration name="Mts2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AQA_MTS" />
@@ -89,11 +89,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Mts2Test.testPhoneInternetFields" />
+        <item itemvalue="JUnit.Mts2Test.testInstallmentFields" />
+        <item itemvalue="JUnit.Mts2Test.testDebtFields" />
         <item itemvalue="JUnit.Mts2Test.testCheckCommunicationServicesFillFields" />
         <item itemvalue="JUnit.Mts2Test" />
-        <item itemvalue="JUnit.Mts2Test.testDebtFields" />
-        <item itemvalue="JUnit.Mts2Test.testInstallmentFields" />
-        <item itemvalue="JUnit.Mts2Test.testPhoneInternetFields" />
       </list>
     </recent_temporary>
   </component>
