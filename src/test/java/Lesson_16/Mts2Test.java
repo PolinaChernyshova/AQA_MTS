@@ -1,3 +1,5 @@
+package Lesson_16;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -164,7 +166,7 @@ public class Mts2Test {
         assertTrue(visaLogo.isDisplayed());
         WebElement belCartLogo = driver.findElement(By.xpath("//img[@class='ng-tns-c61-0 ng-star-inserted']"));
         assertTrue(belCartLogo.isDisplayed());
-        WebElement mirCardLogo = driver.findElement(By.xpath("//div[@class='cards-brands cards-brands_random ng-tns-c61-0 ng-star-inserted']"));
+        WebElement mirCardLogo = driver.findElement(By.xpath("//div[contains(@class,'cards-brands_random')]"));
         assertTrue(mirCardLogo.isDisplayed());
         WebElement googlePayLogo = driver.findElement(By.xpath("//button[@id='gpay-button-online-api-id']"));
         assertTrue(googlePayLogo.isDisplayed());
