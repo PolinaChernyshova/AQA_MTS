@@ -1,9 +1,9 @@
 package Lesson_16;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,13 +11,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Mts2Test {
     static WebDriver driver;
-
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -173,7 +172,7 @@ public class Mts2Test {
         WebElement yandexPayLogo = driver.findElement(By.xpath("//div[@id='yandex-button']"));
         assertTrue(yandexPayLogo.isDisplayed());
     }
-    @AfterClass
+    @AfterAll
     static public void closeChrome() {
         driver.quit();
     }
