@@ -3,6 +3,7 @@ package Lesson_18;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -27,8 +26,8 @@ public class Mts2Test {
         cookieButton.click();
     }
 
-    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.1 услуги связи
     @Test
+    @DisplayName("Проверка надписей в незаполненных полях варианта оплаты: услуги связи")
     public void testCommunicationServicesFields() {
         WebElement serviceDropdown = driver.findElement(By.xpath("//button[@class='select__header']"));
         serviceDropdown.click();
@@ -48,8 +47,8 @@ public class Mts2Test {
         assertEquals(expectedEmail, actualEmail);
     }
 
-    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.2 домашний интернет
     @Test
+    @DisplayName("Проверка надписей в незаполненных полях варианта оплаты: домашний интернет")
     public void testPhoneInternetFields() {
         WebElement serviceDropdown = driver.findElement(By.xpath("//button[@class='select__header']"));
         serviceDropdown.click();
@@ -69,8 +68,8 @@ public class Mts2Test {
         assertEquals(expectedEmail, actualEmail);
     }
 
-    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.3 рассрочка
     @Test
+    @DisplayName("Проверка надписей в незаполненных полях варианта оплаты услуг: рассрочка")
     public void testInstallmentFields() {
         WebElement serviceDropdown = driver.findElement(By.xpath("//button[@class='select__header']"));
         serviceDropdown.click();
@@ -90,8 +89,8 @@ public class Mts2Test {
         assertEquals(expectedEmail, actualEmail);
     }
 
-    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.4 задолженность
     @Test
+    @DisplayName("Проверка надписей в незаполненных полях варианта оплаты услуг: задолженность")
     public void testDebtFields() {
         WebElement serviceDropdown = driver.findElement(By.xpath("//button[@class='select__header']"));
         serviceDropdown.click();
@@ -111,14 +110,8 @@ public class Mts2Test {
         assertEquals(expectedEmail, actualEmail);
     }
 
-    /*Для варианта «Услуги связи» заполнить поля
-    в соответствии с пререквизитами из предыдущей темы,
-    нажать кнопку «Продолжить» и в появившемся окне проверить
-    корректность отображения суммы (в том числе на кнопке), номера телефона,
-    а также надписей в незаполненных полях для ввода реквизитов карты,
-    наличие иконок платёжных систем
-     */
     @Test
+    @DisplayName("Проверка корректности отображения суммы, номера телефона, плейсхолдеров и иконок платежных систем в появившемся окне")
     public void testCheckCommunicationServicesFillFields() {
         WebElement serviceDropdown = driver.findElement(By.xpath("//button[@class='select__header']"));
         serviceDropdown.click();
