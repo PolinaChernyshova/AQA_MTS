@@ -1,0 +1,518 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>AQA_MTS</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>11</maven.compiler.source>\r\n        <maven.compiler.target>11</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n        <allure.version>2.24.0</allure.version>\r\n        <aspectj.version>1.9.21</aspectj.version>\r\n        <allure.results.directory>target/allure-results</allure.results.directory>\r\n    </properties>\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>io.qameta.allure</groupId>\r\n                <artifactId>allure-maven</artifactId>\r\n                <version>2.10.0</version>\r\n                <configuration>\r\n                    <reportVersion>${allure.version}</reportVersion>\r\n                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>\r\n                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>\r\n                </configuration>\r\n            </plugin>\r\n        </plugins>\r\n    </build>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-java</artifactId>\r\n            <version>4.21.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.github.bonigarcia</groupId>\r\n            <artifactId>webdrivermanager</artifactId>\r\n            <version>5.8.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>junit</groupId>\r\n            <artifactId>junit</artifactId>\r\n            <version>4.13.2</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.testng</groupId>\r\n            <artifactId>testng</artifactId>\r\n            <version>7.10.2</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.qameta.allure</groupId>\r\n            <artifactId>allure-junit5</artifactId>\r\n            <scope>test</scope>\r\n        </dependency>\r\n    </dependencies>\r\n    <dependencyManagement>\r\n        <dependencies>\r\n            <dependency>\r\n                <groupId>io.qameta.allure</groupId>\r\n                <artifactId>allure-bom</artifactId>\r\n                <version>${allure.version}</version>\r\n                <type>pom</type>\r\n                <scope>import</scope>\r\n            </dependency>\r\n        </dependencies>\r\n    </dependencyManagement>\r\n\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	
++++ b/pom.xml	
+@@ -12,24 +12,46 @@
+         <maven.compiler.source>11</maven.compiler.source>
+         <maven.compiler.target>11</maven.compiler.target>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-        <allure.version>2.24.0</allure.version>
++        <allure.version>2.25.0</allure.version>
+         <aspectj.version>1.9.21</aspectj.version>
+-        <allure.results.directory>target/allure-results</allure.results.directory>
+     </properties>
+     <build>
+-        <plugins>
+-            <plugin>
+-                <groupId>io.qameta.allure</groupId>
+-                <artifactId>allure-maven</artifactId>
+-                <version>2.10.0</version>
+-                <configuration>
+-                    <reportVersion>${allure.version}</reportVersion>
+-                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+-                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
+-                </configuration>
+-            </plugin>
+-        </plugins>
++            <plugins>
++                <plugin>
++                    <groupId>org.apache.maven.plugins</groupId>
++                    <artifactId>maven-surefire-plugin</artifactId>
++                    <version>3.2.3</version>
++                    <configuration>
++                        <argLine>
++                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
++                        </argLine>
++                    </configuration>
++                    <dependencies>
++                        <dependency>
++                            <groupId>org.aspectj</groupId>
++                            <artifactId>aspectjweaver</artifactId>
++                            <version>${aspectj.version}</version>
++                        </dependency>
++                    </dependencies>
++                </plugin>
++            </plugins>
+     </build>
++    <dependencyManagement>
++        <dependencies>
++            <dependency>
++                <groupId>io.qameta.allure</groupId>
++                <artifactId>allure-junit5</artifactId>
++                <scope>test</scope>
++            </dependency>
++            <dependency>
++                <groupId>io.qameta.allure</groupId>
++                <artifactId>allure-bom</artifactId>
++                <version>${allure.version}</version>
++                <type>pom</type>
++                <scope>import</scope>
++            </dependency>
++        </dependencies>
++    </dependencyManagement>
+     <dependencies>
+         <dependency>
+             <groupId>org.seleniumhq.selenium</groupId>
+@@ -41,12 +63,14 @@
+             <artifactId>webdrivermanager</artifactId>
+             <version>5.8.0</version>
+         </dependency>
++        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+         <dependency>
+-            <groupId>junit</groupId>
+-            <artifactId>junit</artifactId>
+-            <version>4.13.2</version>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-api</artifactId>
++            <version>5.11.0-M2</version>
+             <scope>test</scope>
+         </dependency>
++        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+         <dependency>
+             <groupId>org.testng</groupId>
+             <artifactId>testng</artifactId>
+@@ -54,22 +78,12 @@
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.qameta.allure</groupId>
+-            <artifactId>allure-junit5</artifactId>
+-            <scope>test</scope>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-api</artifactId>
++            <version>5.8.2</version>
++            <scope>compile</scope>
+         </dependency>
+     </dependencies>
+-    <dependencyManagement>
+-        <dependencies>
+-            <dependency>
+-                <groupId>io.qameta.allure</groupId>
+-                <artifactId>allure-bom</artifactId>
+-                <version>${allure.version}</version>
+-                <type>pom</type>
+-                <scope>import</scope>
+-            </dependency>
+-        </dependencies>
+-    </dependencyManagement>
+ 
+ 
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"cb6c788e-f969-452c-91d8-93d93adaeda2\" name=\"Changes\" comment=\"merge branches, add dependencies to pom.xml\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/allure.properties\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2hnAs6faVfe31Ek9wamt7pLIOZH\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Mts2Test.executor\": \"Run\",\r\n    \"JUnit.Mts2Test (1).executor\": \"Run\",\r\n    \"JUnit.Mts2Test.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckCommunicationServicesFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testCheckServiceDropdownOptions.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testDebtFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testInstallmentFields.executor\": \"Run\",\r\n    \"JUnit.Mts2Test.testPhoneInternetFields.executor\": \"Run\",\r\n    \"Maven.AQA_MTS [clean].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:aggregate].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:help].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:install].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:report].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:serve].executor\": \"Run\",\r\n    \"Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"Lesson__18\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"reference.projectsettings.compiler.javacompiler\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"Lesson_18\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"JUnit.Mts2Test (1)\">\r\n    <configuration name=\"Mts2Test (1)\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Lesson_18.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"Lesson_18\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Lesson_18.Mts2Test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testCheckCommunicationServicesFillFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testCheckCommunicationServicesFillFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testDebtFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testDebtFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Mts2Test.testInstallmentFields\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"AQA_MTS\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Mts2Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testInstallmentFields\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.Mts2Test (1)\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testCheckCommunicationServicesFillFields\" />\r\n        <item itemvalue=\"JUnit.Mts2Test\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testDebtFields\" />\r\n        <item itemvalue=\"JUnit.Mts2Test.testInstallmentFields\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"cb6c788e-f969-452c-91d8-93d93adaeda2\" name=\"Changes\" comment=\"\" />\r\n      <created>1718219674745</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1718219674745</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"merge branches, add dependencies to pom.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719236203244</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719236203244</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"merge branches, add dependencies to pom.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719236231441</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719236231441</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"merge branches, add dependencies to pom.xml\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"merge branches, add dependencies to pom.xml\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,10 +5,119 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="merge branches, add dependencies to pom.xml">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/allure.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/bin/allure" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/bin/allure.bat" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/config/allure-cucumber.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/config/allure-junit.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/config/allure.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/allure-commandline-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/allure-generator-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/allure-model-2.23.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/allure-plugin-api-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/allure1-model-1.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/annotations-15.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-beanutils-1.9.4.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-codec-1.11.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-collections-3.2.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-collections4-4.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-io-2.13.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-lang3-3.13.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-logging-1.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/commons-text-1.3.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/config/jetty-logging.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/config/logback.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-ext-tables-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-ast-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-builder-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-collection-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-data-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-dependency-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-format-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-html-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-misc-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-options-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-sequence-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/flexmark-util-visitor-0.62.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/freemarker-2.3.32.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/httpclient-4.5.14.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/httpcore-4.4.16.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jackson-annotations-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jackson-core-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jackson-databind-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jackson-dataformat-xml-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jackson-dataformat-yaml-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jackson-module-jaxb-annotations-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jakarta.activation-api-1.2.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jakarta.xml.bind-api-2.3.3.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/javax.activation-api-1.2.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/javax.servlet-api-3.1.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jaxb-api-2.3.1.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jaxb-utils-1.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jcommander-1.82.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jetty-http-9.4.51.v20230217.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jetty-io-9.4.51.v20230217.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jetty-server-9.4.51.v20230217.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/jetty-util-9.4.51.v20230217.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/logback-classic-1.3.8.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/logback-core-1.3.8.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/opencsv-4.6.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/properties-2.0.RC5.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/slf4j-api-2.0.7.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/snakeyaml-2.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/stax2-api-4.2.1.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/tika-core-2.8.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/lib/woodstox-core-6.5.1.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/README.txt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/behaviors-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/behaviors-plugin/behaviors-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/behaviors-plugin/static/index.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/custom-logo-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/custom-logo-plugin/custom-logo-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/custom-logo-plugin/static/custom-logo.svg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/custom-logo-plugin/static/styles.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/jira-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/allure-jira-commons-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/converter-jackson-2.9.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/jackson-annotations-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/jackson-core-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/jackson-databind-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/okhttp-3.14.9.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/okio-1.17.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/jira-plugin/lib/retrofit-2.9.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/junit-xml-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/junit-xml-plugin/junit-xml-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/packages-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/packages-plugin/packages-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/packages-plugin/static/index.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/screen-diff-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/screen-diff-plugin/screen-diff-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/screen-diff-plugin/static/index.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/screen-diff-plugin/static/styles.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/trx-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/trx-plugin/trx-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xctest-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xctest-plugin/lib/xmlwise-1.2.11.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xctest-plugin/xctest-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/allure-jira-commons-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/converter-jackson-2.9.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/jackson-annotations-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/jackson-core-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/jackson-databind-2.15.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/okhttp-3.14.9.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/okio-1.17.2.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/lib/retrofit-2.9.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xray-plugin/xray-plugin-2.24.0.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xunit-xml-plugin/allure-plugin.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.allure/allure-2.24.0/plugins/xunit-xml-plugin/xunit-xml-plugin-2.24.0.jar" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/Lesson_16/Mts2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Lesson_16/Mts2Test.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/allure.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/allure.properties" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -36,6 +145,7 @@
+   "keyToString": {
+     "Application.Mts2Test.executor": "Run",
+     "JUnit.Mts2Test (1).executor": "Run",
++    "JUnit.Mts2Test (2).executor": "Run",
+     "JUnit.Mts2Test.executor": "Run",
+     "JUnit.Mts2Test.testCheckCommunicationServicesFields.executor": "Run",
+     "JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor": "Run",
+@@ -51,6 +161,9 @@
+     "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:serve].executor": "Run",
+     "Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "TestNG.Mts2Test.executor": "Run",
++    "TestNG.Mts2Test.testCommunicationServiceыFields.executor": "Run",
++    "TestNG.Mts2Test.testPhoneInternetFields.executor": "Run",
+     "git-widget-placeholder": "Lesson__18",
+     "kotlin-language-version-configured": "true",
+     "project.structure.last.edited": "Modules",
+@@ -64,7 +177,7 @@
+       <recent name="Lesson_18" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="JUnit.Mts2Test (1)">
++  <component name="RunManager" selected="TestNG.Mts2Test">
+     <configuration name="Mts2Test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="AQA_MTS" />
+       <extension name="coverage">
+@@ -80,52 +193,81 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Mts2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="Mts2Test (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="AQA_MTS" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="Lesson_16.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="Lesson_16" />
++      <option name="MAIN_CLASS_NAME" value="Lesson_16.Mts2Test" />
+       <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Mts2Test.testCheckCommunicationServicesFillFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="Mts2Test" type="TestNG" temporary="true" nameIsGenerated="true">
+       <module name="AQA_MTS" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+-      <option name="METHOD_NAME" value="testCheckCommunicationServicesFillFields" />
+-      <option name="TEST_OBJECT" value="method" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="Lesson_18.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="Lesson_18" />
++      <option name="MAIN_CLASS_NAME" value="Lesson_18.Mts2Test" />
++      <option name="TEST_OBJECT" value="CLASS" />
++      <properties />
++      <listeners />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Mts2Test.testDebtFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="Mts2Test.testCommunicationServiceыFields" type="TestNG" temporary="true" nameIsGenerated="true">
+       <module name="AQA_MTS" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+-      <option name="METHOD_NAME" value="testDebtFields" />
+-      <option name="TEST_OBJECT" value="method" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="Lesson_18.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="Lesson_18" />
++      <option name="MAIN_CLASS_NAME" value="Lesson_18.Mts2Test" />
++      <option name="METHOD_NAME" value="testCommunicationServiceыFields" />
++      <option name="TEST_OBJECT" value="METHOD" />
++      <properties />
++      <listeners />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Mts2Test.testInstallmentFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="Mts2Test.testPhoneInternetFields" type="TestNG" temporary="true" nameIsGenerated="true">
+       <module name="AQA_MTS" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="Mts2Test" />
+-      <option name="METHOD_NAME" value="testInstallmentFields" />
+-      <option name="TEST_OBJECT" value="method" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="Lesson_18.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="Lesson_18" />
++      <option name="MAIN_CLASS_NAME" value="Lesson_18.Mts2Test" />
++      <option name="METHOD_NAME" value="testPhoneInternetFields" />
++      <option name="TEST_OBJECT" value="METHOD" />
++      <properties />
++      <listeners />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="TestNG.Mts2Test" />
++        <item itemvalue="TestNG.Mts2Test.testCommunicationServiceыFields" />
++        <item itemvalue="TestNG.Mts2Test.testPhoneInternetFields" />
++        <item itemvalue="JUnit.Mts2Test (2)" />
+         <item itemvalue="JUnit.Mts2Test (1)" />
+-        <item itemvalue="JUnit.Mts2Test.testCheckCommunicationServicesFillFields" />
+-        <item itemvalue="JUnit.Mts2Test" />
+-        <item itemvalue="JUnit.Mts2Test.testDebtFields" />
+-        <item itemvalue="JUnit.Mts2Test.testInstallmentFields" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -172,4 +314,14 @@
+     <MESSAGE value="merge branches, add dependencies to pom.xml" />
+     <option name="LAST_COMMIT_MESSAGE" value="merge branches, add dependencies to pom.xml" />
+   </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <breakpoint enabled="true" type="java-exception">
++          <properties class="java.lang.NullPointerException" package="java.lang" />
++          <option name="timeStamp" value="4" />
++        </breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/test/java/Lesson_16/Mts2Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Lesson_16;\r\n\r\nimport io.github.bonigarcia.wdm.WebDriverManager;\r\nimport org.junit.AfterClass;\r\nimport org.junit.BeforeClass;\r\nimport org.junit.Test;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.support.ui.ExpectedConditions;\r\nimport org.openqa.selenium.support.ui.WebDriverWait;\r\nimport java.time.Duration;\r\nimport static org.junit.Assert.assertEquals;\r\nimport static org.junit.Assert.assertTrue;\r\n\r\npublic class Mts2Test {\r\n    static WebDriver driver;\r\n\r\n    @BeforeClass\r\n    public static void setUp() {\r\n        WebDriverManager.chromedriver().setup();\r\n        driver = new ChromeDriver();\r\n        driver.get(\"https://www.mts.by\");\r\n        WebElement cookieButton = driver.findElement(By.xpath(\"//button[@id='cookie-agree']\"));\r\n        cookieButton.click();\r\n    }\r\n\r\n    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.1 услуги связи\r\n    @Test\r\n    public void testCommunicationServicesFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement communicationDropdown = driver.findElement(By.xpath(\"//p[text()='Услуги связи']\"));\r\n        communicationDropdown.click();\r\n        WebElement phoneNumberField = driver.findElement(By.xpath(\"//input[@class='phone']\"));\r\n        String expectedPhoneNumber = \"Номер телефона\";\r\n        String actualPhoneNumber = phoneNumberField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedPhoneNumber, actualPhoneNumber);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@class='total_rub']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@class='email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.2 домашний интернет\r\n    @Test\r\n    public void testPhoneInternetFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement homeInternetDropdown = driver.findElement(By.xpath(\"//p[text()='Домашний интернет']\"));\r\n        homeInternetDropdown.click();\r\n        WebElement phoneNumberField = driver.findElement(By.xpath(\"//input[@id ='internet-phone']\"));\r\n        String expectedPhoneNumber = \"Номер абонента\";\r\n        String actualPhoneNumber = phoneNumberField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedPhoneNumber, actualPhoneNumber);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@id ='internet-sum']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@id ='internet-email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.3 рассрочка\r\n    @Test\r\n    public void testInstallmentFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement installmentDropdown = driver.findElement(By.xpath(\"//p[text()='Рассрочка']\"));\r\n        installmentDropdown.click();\r\n        WebElement scoreInstallmentField = driver.findElement(By.xpath(\"//input[@id = 'score-instalment']\"));\r\n        String expectedInstallmentScore= \"Номер счета на 44\";\r\n        String actualInstallmentScore = scoreInstallmentField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedInstallmentScore, actualInstallmentScore);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@id = 'instalment-sum']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@id = 'instalment-email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    //Проверка надписей в незаполненных полях каждого варианта оплаты услуг: 1.4 задолженность\r\n    @Test\r\n    public void testDebtFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement debtDropdown = driver.findElement(By.xpath(\"//p[text() = 'Задолженность']\"));\r\n        debtDropdown.click();\r\n        WebElement scoreNumberField = driver.findElement(By.xpath(\"//input[@id = 'score-arrears']\"));\r\n        String expectedScoreNumber = \"Номер счета на 2073\";\r\n        String actualScoreNumber = scoreNumberField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedScoreNumber, actualScoreNumber);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@id = 'arrears-sum']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@id = 'arrears-email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    /*Для варианта «Услуги связи» заполнить поля\r\n    в соответствии с пререквизитами из предыдущей темы,\r\n    нажать кнопку «Продолжить» и в появившемся окне проверить\r\n    корректность отображения суммы (в том числе на кнопке), номера телефона,\r\n    а также надписей в незаполненных полях для ввода реквизитов карты,\r\n    наличие иконок платёжных систем\r\n     */\r\n    @Test\r\n    public void testCheckCommunicationServicesFillFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement communicationDropdown = driver.findElement(By.xpath(\"//p[text()='Услуги связи']\"));\r\n        communicationDropdown.click();\r\n        WebElement phoneNumberField = driver.findElement(By.xpath(\"//input[@class='phone']\"));\r\n        phoneNumberField.sendKeys(\"297777777\");\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@class='total_rub']\"));\r\n        sumField.sendKeys(\"100\");\r\n        WebElement submitButton = driver.findElement(By.xpath(\"//button[text()='Продолжить']\"));\r\n        submitButton.click();\r\n        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));\r\n        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(\"//iframe[@class='bepaid-iframe']\")));\r\n        driver.switchTo().frame(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(\"//iframe[@class='bepaid-iframe']\"))));\r\n        WebElement payDescriptionCost = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(\"//div[@class='pay-description__cost']\")));\r\n        String expectedPayDescriptionCost = \"100.00 BYN\";\r\n        String actualPayDescriptionCost = payDescriptionCost.getText();\r\n        assertEquals(expectedPayDescriptionCost, actualPayDescriptionCost);\r\n        WebElement payButton = driver.findElement(By.xpath(\"//button[@class='colored disabled']\"));\r\n        String expectedPayButtonText = \"Оплатить 100.00 BYN\";\r\n        String PayButtonText = payButton.getText();\r\n        assertEquals(expectedPayButtonText, PayButtonText);\r\n        WebElement phoneNumber = driver.findElement(By.xpath(\"//span[@class='pay-description__text']\"));\r\n        String expectedPhoneNumber = \"Оплата: Услуги связи Номер:375297777777\";\r\n        String actualPhoneNumber = phoneNumber.getText();\r\n        assertEquals(expectedPhoneNumber, actualPhoneNumber);\r\n        WebElement cardNumberField = driver.findElement(By.xpath(\"//label[text () = 'Номер карты']\"));\r\n        String expectedCardNumber = \"Номер карты\";\r\n        String actualCardNumber = cardNumberField.getText();\r\n        assertEquals(expectedCardNumber, actualCardNumber);\r\n        WebElement validityField = driver.findElement(By.xpath(\"//label[text () = 'Срок действия']\"));\r\n        String expectedValidity = \"Срок действия\";\r\n        String actualValidity = validityField.getText();\r\n        assertEquals(expectedValidity, actualValidity);\r\n        WebElement cvcField = driver.findElement(By.xpath(\"//label[text () = 'CVC']\"));\r\n        String expectedCVC = \"CVC\";\r\n        String actualCVC = cvcField.getText();\r\n        assertEquals(expectedCVC, actualCVC);\r\n        WebElement ownerNameField = driver.findElement(By.xpath(\"//label[text () = 'Имя держателя (как на карте)']\"));\r\n        String expectedOwnerName = \"Имя держателя (как на карте)\";\r\n        String actualOwnerName = ownerNameField.getText();\r\n        assertEquals(expectedOwnerName, actualOwnerName);\r\n        WebElement masterCardLogo = driver.findElement(By.xpath(\"//img[@class = 'ng-tns-c61-0 ng-star-inserted']\"));\r\n        assertTrue(masterCardLogo.isDisplayed());\r\n        WebElement visaLogo = driver.findElement(By.xpath(\"//img[@class='ng-tns-c61-0 ng-star-inserted']\"));\r\n        assertTrue(visaLogo.isDisplayed());\r\n        WebElement belCartLogo = driver.findElement(By.xpath(\"//img[@class='ng-tns-c61-0 ng-star-inserted']\"));\r\n        assertTrue(belCartLogo.isDisplayed());\r\n        WebElement mirCardLogo = driver.findElement(By.xpath(\"//div[contains(@class,'cards-brands_random')]\"));\r\n        assertTrue(mirCardLogo.isDisplayed());\r\n        WebElement googlePayLogo = driver.findElement(By.xpath(\"//button[@id='gpay-button-online-api-id']\"));\r\n        assertTrue(googlePayLogo.isDisplayed());\r\n        WebElement yandexPayLogo = driver.findElement(By.xpath(\"//div[@id='yandex-button']\"));\r\n        assertTrue(yandexPayLogo.isDisplayed());\r\n    }\r\n    @AfterClass\r\n    static public void closeChrome() {\r\n        driver.quit();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/Lesson_16/Mts2Test.java b/src/test/java/Lesson_16/Mts2Test.java
+--- a/src/test/java/Lesson_16/Mts2Test.java	
++++ b/src/test/java/Lesson_16/Mts2Test.java	
+@@ -1,9 +1,9 @@
+ package Lesson_16;
+ 
+ import io.github.bonigarcia.wdm.WebDriverManager;
+-import org.junit.AfterClass;
+-import org.junit.BeforeClass;
+-import org.junit.Test;
++import org.junit.jupiter.api.AfterAll;
++import org.junit.jupiter.api.BeforeAll;
++import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.WebElement;
+@@ -11,13 +11,14 @@
+ import org.openqa.selenium.support.ui.ExpectedConditions;
+ import org.openqa.selenium.support.ui.WebDriverWait;
+ import java.time.Duration;
+-import static org.junit.Assert.assertEquals;
+-import static org.junit.Assert.assertTrue;
++
++import static org.testng.AssertJUnit.assertEquals;
++import static org.testng.AssertJUnit.assertTrue;
+ 
+ public class Mts2Test {
+     static WebDriver driver;
+ 
+-    @BeforeClass
++    @BeforeAll
+     public static void setUp() {
+         WebDriverManager.chromedriver().setup();
+         driver = new ChromeDriver();
+@@ -173,7 +174,7 @@
+         WebElement yandexPayLogo = driver.findElement(By.xpath("//div[@id='yandex-button']"));
+         assertTrue(yandexPayLogo.isDisplayed());
+     }
+-    @AfterClass
++    @AfterAll
+     static public void closeChrome() {
+         driver.quit();
+     }
+Index: src/test/resources/allure.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>allure.results.directory=target/allure-result
+===================================================================
+diff --git a/src/test/resources/allure.properties b/src/test/resources/allure.properties
+--- a/src/test/resources/allure.properties	
++++ b/src/test/resources/allure.properties	
+@@ -1,1 +1,1 @@
+-allure.results.directory=target/allure-result
+\ No newline at end of file
++allure.results.directory=target/allure-results
+\ No newline at end of file
+Index: src/test/java/Lesson_18/Mts2Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Lesson_18;\r\n\r\nimport io.github.bonigarcia.wdm.WebDriverManager;\r\nimport org.junit.AfterClass;\r\nimport org.junit.BeforeClass;\r\nimport org.junit.Test;\r\nimport org.junit.jupiter.api.DisplayName;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.support.ui.ExpectedConditions;\r\nimport org.openqa.selenium.support.ui.WebDriverWait;\r\n\r\nimport java.time.Duration;\r\n\r\nimport static org.junit.Assert.assertEquals;\r\nimport static org.junit.Assert.assertTrue;\r\n\r\npublic class Mts2Test {\r\n    static WebDriver driver;\r\n\r\n    @BeforeClass\r\n    public static void setUp() {\r\n        WebDriverManager.chromedriver().setup();\r\n        driver = new ChromeDriver();\r\n        driver.get(\"https://www.mts.by\");\r\n        WebElement cookieButton = driver.findElement(By.xpath(\"//button[@id='cookie-agree']\"));\r\n        cookieButton.click();\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Проверка надписей в незаполненных полях при выбранном варианте оплаты: услуги связи\")\r\n    public void testCommunicationServicesFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement communicationDropdown = driver.findElement(By.xpath(\"//p[text()='Услуги связи']\"));\r\n        communicationDropdown.click();\r\n        WebElement phoneNumberField = driver.findElement(By.xpath(\"//input[@class='phone']\"));\r\n        String expectedPhoneNumber = \"Номер телефона\";\r\n        String actualPhoneNumber = phoneNumberField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedPhoneNumber, actualPhoneNumber);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@class='total_rub']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@class='email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Проверка надписей в незаполненных полях при выбранном варианте оплаты: домашний интернет\")\r\n    public void testPhoneInternetFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement homeInternetDropdown = driver.findElement(By.xpath(\"//p[text()='Домашний интернет']\"));\r\n        homeInternetDropdown.click();\r\n        WebElement phoneNumberField = driver.findElement(By.xpath(\"//input[@id ='internet-phone']\"));\r\n        String expectedPhoneNumber = \"Номер абонента\";\r\n        String actualPhoneNumber = phoneNumberField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedPhoneNumber, actualPhoneNumber);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@id ='internet-sum']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@id ='internet-email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Проверка надписей в незаполненных полях при выбранном варианте оплаты: рассрочка\")\r\n    public void testInstallmentFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement installmentDropdown = driver.findElement(By.xpath(\"//p[text()='Рассрочка']\"));\r\n        installmentDropdown.click();\r\n        WebElement scoreInstallmentField = driver.findElement(By.xpath(\"//input[@id = 'score-instalment']\"));\r\n        String expectedInstallmentScore= \"Номер счета на 44\";\r\n        String actualInstallmentScore = scoreInstallmentField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedInstallmentScore, actualInstallmentScore);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@id = 'instalment-sum']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@id = 'instalment-email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Проверка надписей в незаполненных полях при выбранном варианте оплаты: задолженность\")\r\n    public void testDebtFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement debtDropdown = driver.findElement(By.xpath(\"//p[text() = 'Задолженность']\"));\r\n        debtDropdown.click();\r\n        WebElement scoreNumberField = driver.findElement(By.xpath(\"//input[@id = 'score-arrears']\"));\r\n        String expectedScoreNumber = \"Номер счета на 2073\";\r\n        String actualScoreNumber = scoreNumberField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedScoreNumber, actualScoreNumber);\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@id = 'arrears-sum']\"));\r\n        String expectedSum = \"Сумма\";\r\n        String actualSum = sumField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedSum, actualSum);\r\n        WebElement emailField = driver.findElement(By.xpath(\"//input[@id = 'arrears-email']\"));\r\n        String expectedEmail = \"E-mail для отправки чека\";\r\n        String actualEmail = emailField.getAttribute(\"placeholder\");\r\n        assertEquals(expectedEmail, actualEmail);\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Проверка отображения корректной суммы, номера телефона, плейсхолдеров и иконок платежных систем в окне оплаты\")\r\n    public void testCheckCommunicationServicesFillFields() {\r\n        WebElement serviceDropdown = driver.findElement(By.xpath(\"//button[@class='select__header']\"));\r\n        serviceDropdown.click();\r\n        WebElement communicationDropdown = driver.findElement(By.xpath(\"//p[text()='Услуги связи']\"));\r\n        communicationDropdown.click();\r\n        WebElement phoneNumberField = driver.findElement(By.xpath(\"//input[@class='phone']\"));\r\n        phoneNumberField.sendKeys(\"297777777\");\r\n        WebElement sumField = driver.findElement(By.xpath(\"//input[@class='total_rub']\"));\r\n        sumField.sendKeys(\"100\");\r\n        WebElement submitButton = driver.findElement(By.xpath(\"//button[text()='Продолжить']\"));\r\n        submitButton.click();\r\n        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));\r\n        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(\"//iframe[@class='bepaid-iframe']\")));\r\n        driver.switchTo().frame(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(\"//iframe[@class='bepaid-iframe']\"))));\r\n        WebElement payDescriptionCost = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(\"//div[@class='pay-description__cost']\")));\r\n        String expectedPayDescriptionCost = \"100.00 BYN\";\r\n        String actualPayDescriptionCost = payDescriptionCost.getText();\r\n        assertEquals(expectedPayDescriptionCost, actualPayDescriptionCost);\r\n        WebElement payButton = driver.findElement(By.xpath(\"//button[@class='colored disabled']\"));\r\n        String expectedPayButtonText = \"Оплатить 100.00 BYN\";\r\n        String PayButtonText = payButton.getText();\r\n        assertEquals(expectedPayButtonText, PayButtonText);\r\n        WebElement phoneNumber = driver.findElement(By.xpath(\"//span[@class='pay-description__text']\"));\r\n        String expectedPhoneNumber = \"Оплата: Услуги связи Номер:375297777777\";\r\n        String actualPhoneNumber = phoneNumber.getText();\r\n        assertEquals(expectedPhoneNumber, actualPhoneNumber);\r\n        WebElement cardNumberField = driver.findElement(By.xpath(\"//label[text () = 'Номер карты']\"));\r\n        String expectedCardNumber = \"Номер карты\";\r\n        String actualCardNumber = cardNumberField.getText();\r\n        assertEquals(expectedCardNumber, actualCardNumber);\r\n        WebElement validityField = driver.findElement(By.xpath(\"//label[text () = 'Срок действия']\"));\r\n        String expectedValidity = \"Срок действия\";\r\n        String actualValidity = validityField.getText();\r\n        assertEquals(expectedValidity, actualValidity);\r\n        WebElement cvcField = driver.findElement(By.xpath(\"//label[text () = 'CVC']\"));\r\n        String expectedCVC = \"CVC\";\r\n        String actualCVC = cvcField.getText();\r\n        assertEquals(expectedCVC, actualCVC);\r\n        WebElement ownerNameField = driver.findElement(By.xpath(\"//label[text () = 'Имя держателя (как на карте)']\"));\r\n        String expectedOwnerName = \"Имя держателя (как на карте)\";\r\n        String actualOwnerName = ownerNameField.getText();\r\n        assertEquals(expectedOwnerName, actualOwnerName);\r\n        WebElement masterCardLogo = driver.findElement(By.xpath(\"//img[@class = 'ng-tns-c61-0 ng-star-inserted']\"));\r\n        assertTrue(masterCardLogo.isDisplayed());\r\n        WebElement visaLogo = driver.findElement(By.xpath(\"//img[@class='ng-tns-c61-0 ng-star-inserted']\"));\r\n        assertTrue(visaLogo.isDisplayed());\r\n        WebElement belCartLogo = driver.findElement(By.xpath(\"//img[@class='ng-tns-c61-0 ng-star-inserted']\"));\r\n        assertTrue(belCartLogo.isDisplayed());\r\n        WebElement mirCardLogo = driver.findElement(By.xpath(\"//div[contains(@class,'cards-brands_random')]\"));\r\n        assertTrue(mirCardLogo.isDisplayed());\r\n        WebElement googlePayLogo = driver.findElement(By.xpath(\"//button[@id='gpay-button-online-api-id']\"));\r\n        assertTrue(googlePayLogo.isDisplayed());\r\n        WebElement yandexPayLogo = driver.findElement(By.xpath(\"//div[@id='yandex-button']\"));\r\n        assertTrue(yandexPayLogo.isDisplayed());\r\n    }\r\n    @AfterClass\r\n    static public void closeChrome() {\r\n        driver.quit();\r\n    }\r\n}
+===================================================================
+diff --git a/src/test/java/Lesson_18/Mts2Test.java b/src/test/java/Lesson_18/Mts2Test.java
+--- a/src/test/java/Lesson_18/Mts2Test.java	
++++ b/src/test/java/Lesson_18/Mts2Test.java	
+@@ -1,9 +1,8 @@
+ package Lesson_18;
+ 
+ import io.github.bonigarcia.wdm.WebDriverManager;
+-import org.junit.AfterClass;
+-import org.junit.BeforeClass;
+-import org.junit.Test;
++import org.junit.jupiter.api.AfterAll;
++import org.junit.jupiter.api.BeforeAll;
+ import org.junit.jupiter.api.DisplayName;
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+@@ -11,16 +10,15 @@
+ import org.openqa.selenium.chrome.ChromeDriver;
+ import org.openqa.selenium.support.ui.ExpectedConditions;
+ import org.openqa.selenium.support.ui.WebDriverWait;
+-
++import org.testng.annotations.Test;
+ import java.time.Duration;
+-
+-import static org.junit.Assert.assertEquals;
+-import static org.junit.Assert.assertTrue;
++import static org.testng.AssertJUnit.assertEquals;
++import static org.testng.AssertJUnit.assertTrue;
+ 
+ public class Mts2Test {
+     static WebDriver driver;
+ 
+-    @BeforeClass
++    @BeforeAll
+     public static void setUp() {
+         WebDriverManager.chromedriver().setup();
+         driver = new ChromeDriver();
+@@ -30,7 +28,7 @@
+     }
+ 
+     @Test
+-    @DisplayName("Проверка надписей в незаполненных полях при выбранном варианте оплаты: услуги связи")
++    //@DisplayName("Проверка надписей в незаполненных полях при выбранном варианте оплаты: услуги связи")
+     public void testCommunicationServicesFields() {
+         WebElement serviceDropdown = driver.findElement(By.xpath("//button[@class='select__header']"));
+         serviceDropdown.click();
+@@ -170,7 +168,7 @@
+         WebElement yandexPayLogo = driver.findElement(By.xpath("//div[@id='yandex-button']"));
+         assertTrue(yandexPayLogo.isDisplayed());
+     }
+-    @AfterClass
++    @AfterAll
+     static public void closeChrome() {
+         driver.quit();
+     }
