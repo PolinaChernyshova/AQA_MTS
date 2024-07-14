@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="скрыла папку allure">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_55_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_55__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_12_57__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="cb6c788e-f969-452c-91d8-93d93adaeda2" name="Changes" comment="add display name">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_06_2024_11_08_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_06_2024_11_08__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_06_2024_16_22_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_06_2024_0_11_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_06_2024_0_44_[Changes]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,10 +21,14 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Lesson_18.1" />
+        <entry key="$PROJECT_DIR$" value="Lesson_18.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/test/java/Lesson_18/Mts2Test.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -37,35 +39,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Mts2Test.executor": "Run",
-    "JUnit.Mts2Test (1).executor": "Run",
-    "JUnit.Mts2Test.executor": "Run",
-    "JUnit.Mts2Test.testCheckCommunicationServicesFields.executor": "Run",
-    "JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor": "Run",
-    "JUnit.Mts2Test.testCheckServiceDropdownOptions.executor": "Run",
-    "JUnit.Mts2Test.testCommunicationServicesFields.executor": "Run",
-    "JUnit.Mts2Test.testDebtFields.executor": "Run",
-    "JUnit.Mts2Test.testInstallmentFields.executor": "Run",
-    "JUnit.Mts2Test.testPhoneInternetFields.executor": "Run",
-    "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:aggregate].executor": "Run",
-    "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:install].executor": "Run",
-    "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:report].executor": "Run",
-    "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:serve].executor": "Run",
-    "Maven.AQA_MTS [io.qameta.allure:allure-maven:2.9:serve].executor": "Run",
-    "Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:help].executor": "Run",
-    "Maven.AQA_MTS [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
-    "Maven.AQA_MTS [org.apache.maven.plugins:maven-jar-plugin:3.3.0:test-jar].executor": "Run",
-    "Maven.AQA_MTS [org.apache.maven.plugins:maven-surefire-plugin:3.2.3:test].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Lesson__18",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "advanced.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Mts2Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testCheckCommunicationServicesFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testCheckCommunicationServicesFillFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testCheckServiceDropdownOptions.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testCommunicationServicesFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testDebtFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testInstallmentFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Mts2Test.testPhoneInternetFields.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [--activate-profiles].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [allure:serve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:aggregate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:help].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:report].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.10.0:serve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.11.2:serve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.12.0:serve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [io.qameta.allure:allure-maven:2.9:serve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:help].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [org.apache.maven.plugins:maven-jar-plugin:3.3.0:test-jar].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [org.apache.maven.plugins:maven-site-plugin:3.12.1:site].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AQA_MTS [org.apache.maven.plugins:maven-surefire-plugin:3.2.3:test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG.MtsTest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Lesson__18&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Serge/Desktop/QA/JavaProjects/AQA_MTS/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Serge\Desktop\QA\JavaProjects\AQA_MTS\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Serge\Desktop\QA\JavaProjects\AQA_MTS\src\test" />
       <recent name="C:\Users\Serge\Desktop\QA\JavaProjects\AQA_MTS\src" />
@@ -73,6 +90,13 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Lesson_18" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn --activate-profiles" />
+      <command value="mvn allure:serve" />
+    </option>
   </component>
   <component name="RunManager" selected="JUnit.Mts2Test (1)">
     <configuration name="Mts2Test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -139,10 +163,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Mts2Test (1)" />
-        <item itemvalue="JUnit.Mts2Test.testCommunicationServicesFields" />
         <item itemvalue="JUnit.Mts2Test.testPhoneInternetFields" />
         <item itemvalue="JUnit.Mts2Test.testInstallmentFields" />
         <item itemvalue="JUnit.Mts2Test.testDebtFields" />
+        <item itemvalue="JUnit.Mts2Test.testCommunicationServicesFields" />
       </list>
     </recent_temporary>
   </component>
@@ -187,13 +211,45 @@
       <option name="project" value="LOCAL" />
       <updated>1719267415380</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add display name">
+      <option name="closed" value="true" />
+      <created>1719295575855</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719295575855</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Lesson_18.2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="merge branches, add dependencies to pom.xml" />
     <MESSAGE value="change version of junit, code review" />
     <MESSAGE value="скрыла папку allure" />
-    <option name="LAST_COMMIT_MESSAGE" value="скрыла папку allure" />
+    <MESSAGE value="add display name" />
+    <option name="LAST_COMMIT_MESSAGE" value="add display name" />
   </component>
 </project>
